@@ -1,0 +1,43 @@
+from django.db import models
+from django_enumfield import enum
+
+class SecretariatStyle(enum.Enum):
+    GRADUATION = 0
+    POSTGRADUATE = 1
+
+class DisciplineStyle(enum.Enum):
+    ELECTIVE = 0
+    MANDATORY = 1
+    NOTOFFERED = 0
+    OFFERED = 1
+
+class Departament(models.Model):
+    name = models.CharField(max_length=100)
+
+class Secretariat(models.Model):
+    type = enum.EnumField(SecretariatStyle)
+    departament = models.ForeignKey(Departament, related_name='secretariat', null=True)
+
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+    secretariat = models.ForeignKey(Secretariat, related_name='course', null=True)
+
+class Discipline(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    number_credit = models.IntegerField(default=0)
+    required = enum.EnumField(DisciplineStyle, default=DisciplineStyle.MANDATORY)
+    offered = enum.EnumField(DisciplineStyle, default=DisciplineStyle.NOTOFFERED)
+    period_offered = models.DateField(null=True)
+    required_credit = models.IntegerField(blank=True, null=True)
+    teacher = models.CharField(max_length=100)
+    pre_discipline = models.ForeignKey( 'self', null=True, blank=True, related_name='prediscline')
+    course = models.ForeignKey(Course, related_name='discipline', null=True)
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    matriculation = models.IntegerField(blank=True, null=True, unique=True)
+    credit_mandatory = models.IntegerField(blank=True, null=True)
+    credit_elective = models.IntegerField(blank=True, null=True)
+    discipline = models.ForeignKey(Discipline, related_name='student', null=True)
+    departament = models.ForeignKey(Departament, related_name='student', null=True)
