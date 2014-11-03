@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html lang="pt" ng-app="smicApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Matriculas</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dar/css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'dar/css/menu.css' %}"/>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/lib/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/lib/angular.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/lib/angular-resource.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/js/app.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/js/services.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}dar/js/controllers.js"></script>
+</head>
+<body>
+<h1 class="leader-h">Sistema de Matrículas</h1>
+<div id='cssmenu'>
+  <ul>
+    <li ui-sref-active="active"><a ui-sref="students"><span>Lista de Alunos</span></a></li>
+  </ul>
+</div>
+<div ui-view></div>
+</body>
+</html>
