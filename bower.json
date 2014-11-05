@@ -1,0 +1,25 @@
+{
+  "name": "Sistema de Matriculas (SmIC)",
+  "version": "0.0.0",
+  "authors": [
+    "Karla Elisabeth <kecs@ic.ufal.br>"
+  ],
+  "description": "Projeto da disciplina Testes de software. Universidade Federal de Alagoas",
+  "license": "MIT",
+  "private": "true",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.1",
+    "angular-route": "~1.3.1",
+    "angular-resource": "~1.3.1",
+    "bootstrap": "~3.3.0",
+    "jquery": "~2.1.1",
+    "ui.bootstrap": "~0.11.2"
+  }
+}

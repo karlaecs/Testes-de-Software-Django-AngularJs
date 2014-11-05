@@ -4,16 +4,12 @@ from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 from rest_framework import permissions, viewsets
 
 from dar.models import Course, Discipline, Departament, Student, Secretariat
-#from dar.permissions import IsAuthorOrReadOnly
 from dar.serializers import CourseSerializer, DepartamentSerializer, DisciplineSerializer, SecretariatSerializer, StudentSerializer
 
 
 @csrf_protect
 @ensure_csrf_cookie
 def index(request):
-   """ user = authenticate(username='bob', password='bob')
-    if user is not None:
-        login(request, user)"""
    return render(request, 'dar/index.html')
 
 

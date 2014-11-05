@@ -1,0 +1,10 @@
+Matrículas Abertas!!
+<div><span>Busca por Alunos:</span><input ng-model="searchText"></div>
+<div>
+  <div class="student-container" ng-repeat="student in students | filter:searchText">
+    <div>
+        <span class="student-name">[[ student.name ]]</span>
+        <span>Matrícula: [[student.matriculation ]]</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  margin: 0;
+}
+footer
+{
+    clear: both;
+    background-color: #333;
+    color: #ffffff;
+    position: relative;
+    margin: 0 auto;
+}
+.leader-h {
+  width: 100%;
+  background-color: #333;
+  color: #fafafa;
+  padding: 50px 10%;
+  margin: 0;
+}
+.content {
+    min-height: 600px;
+}
+.student-container {
+  margin: 20px auto;
+  width: 80%;
+  padding: 3px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.student-name {
+  color: #00cccc;
+  margin-bottom: 10px;
+  font-size: 14px;
+  float:left;
+  margin-right:10px;
+  margin-left: 20px;
+}
+
