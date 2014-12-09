@@ -17,6 +17,9 @@ class Departament(models.Model):
     def __str__(self):
         return self.name
 
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.name)
+
 class Secretariat(models.Model):
     type = enum.EnumField(SecretariatStyle)
     name = models.CharField(max_length=100)
@@ -25,6 +28,9 @@ class Secretariat(models.Model):
     def __str__(self):
         return self.name
 
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.name)
+
 class Course(models.Model):
     name = models.CharField(max_length=100)
     secretariat = models.ForeignKey(Secretariat, related_name='course', null=True)
@@ -32,6 +38,8 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.name)
 
 class Discipline(models.Model):
     name = models.CharField(max_length=100)
@@ -43,10 +51,14 @@ class Discipline(models.Model):
     required_credit = models.IntegerField(blank=True, null=True)
     teacher = models.CharField(max_length=100)
     course = models.ForeignKey(Course, related_name='discipline', null=True)
+    departament = models.ForeignKey(Departament, related_name='discipline', null=True)
+    disciplines = models.ManyToManyField('self', related_name='dscipline_req', null=True)
 
     def __str__(self):
         return self.name
 
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.name)
 
 class Student(models.Model):
     name = models.CharField(max_length=100)
@@ -56,7 +68,10 @@ class Student(models.Model):
     course = models.ForeignKey(Course, related_name='student', null=True)
     departament = models.ForeignKey(Departament, related_name='student', null=True)
     disciplines = models.ManyToManyField(Discipline, null=True, blank=True)
-    #matriculate = models.BooleanField(default=False)
+    matriculate = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
+
+    def __unicode__(self):
+        return '%d: %s' % (self.id, self.name)

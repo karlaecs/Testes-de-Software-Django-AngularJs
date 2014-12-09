@@ -10,7 +10,7 @@
 </div>
 <div class="student-container" ng-repeat="student in students | filter:searchStudents">
     <div>
-        <span class="student-name">[[ student.name ]]</span>
+        <span class="student-name"><a href="javascript:void(0)" onclick="listDisciplines(student.departament)">[[ student.name ]]</a></span>
         <span>Matrícula: [[student.matriculation ]]</span>
     </div>
 </div>

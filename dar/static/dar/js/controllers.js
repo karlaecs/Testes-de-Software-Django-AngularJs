@@ -10,3 +10,23 @@ app.controller('StudentController', [
         });
     }
 ]);
+
+app.controller('DisciplineController', [
+                '$scope',
+                'disciplineService',
+    function ($scope, disciplineService) {
+        disciplineService.getDisciplines({}, function(data) {
+            $scope.disciplines = data;
+        });
+    }
+]);
+
+app.controller('SecretariatController', [
+                '$scope',
+                'secretariatService',
+    function ($scope, secretariatService) {
+        secretariatService.getSecretariats({}, function(data) {
+            $scope.secretariats = data;
+        });
+    }
+]);
