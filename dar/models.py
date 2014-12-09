@@ -56,6 +56,7 @@ class Student(models.Model):
     course = models.ForeignKey(Course, related_name='student', null=True)
     departament = models.ForeignKey(Departament, related_name='student', null=True)
     disciplines = models.ManyToManyField(Discipline, null=True, blank=True)
+    #matriculate = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
