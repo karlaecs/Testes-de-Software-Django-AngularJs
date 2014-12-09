@@ -15,7 +15,6 @@ node_modules
 *.iws
 *.log
 *.sw?
-*.db
 .classpath
 .project
 
@@ -32,3 +31,5 @@ node_modules/
 
 # Accept these files in the repository
 !.gitignore
+!.bowerrc
+!dar.db

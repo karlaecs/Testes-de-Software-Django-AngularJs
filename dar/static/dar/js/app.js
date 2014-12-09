@@ -26,6 +26,6 @@ app.config(['$routeProvider',
             controller: 'SecretariatController'
         }).
         otherwise({
-            redirectTo: '/'
+            redirectTo: '/students'
         });
 }]);
