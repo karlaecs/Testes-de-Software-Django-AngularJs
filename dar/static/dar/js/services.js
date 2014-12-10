@@ -17,10 +17,15 @@ app.service('disciplineService', [
             '$resource',
 
     function ($resource) {
-        var disciplinesResource = $resource("api/disciplines");
+        var disciplinesResource = $resource('api/disciplines');
+        var disciplinesByDepartamentResource = $resource('api/disciplines/departament');
 
         this.getDisciplines= function(params, success, error) {
             return disciplinesResource.query(params, success, error);
+        };
+
+        this.getdisciplinesByDepartament= function(params, success, error) {
+            return disciplinesByDepartamentResource.query(params, success, error);
         };
     }
 ]);

@@ -52,7 +52,8 @@ class Discipline(models.Model):
     teacher = models.CharField(max_length=100)
     course = models.ForeignKey(Course, related_name='discipline', null=True)
     departament = models.ForeignKey(Departament, related_name='discipline', null=True)
-    disciplines = models.ManyToManyField('self', related_name='dscipline_req', null=True)
+    disciplines = models.ManyToManyField('self', related_name='discipline_req', null=True)
+    type = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -69,6 +70,7 @@ class Student(models.Model):
     departament = models.ForeignKey(Departament, related_name='student', null=True)
     disciplines = models.ManyToManyField(Discipline, null=True, blank=True)
     matriculate = models.BooleanField(default=False)
+    type = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

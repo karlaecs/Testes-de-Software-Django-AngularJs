@@ -15,7 +15,7 @@ class DisciplineSerializer(serializers.ModelSerializer):
     disciplines = serializers.RelatedField(many=True, read_only=True)
     class Meta:
         model = Discipline
-        fields = ('id', 'name', 'code', 'number_credit', 'required', 'offered', 'period_offered', 'required_credit', 'teacher', 'course', 'departament', 'disciplines')
+        fields = ('id', 'name', 'code', 'number_credit', 'required', 'offered', 'period_offered', 'required_credit', 'teacher', 'course', 'departament', 'disciplines', 'type')
 
 class SecretariatSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,4 +26,4 @@ class StudentSerializer(serializers.ModelSerializer):
     disciplines = serializers.RelatedField(many=True, read_only=True)
     class Meta:
         model = Student
-        fields = ('id', 'name', 'matriculation', 'credit_mandatory', 'credit_elective', 'matriculate', 'departament', 'disciplines', 'course')
+        fields = ('id', 'name', 'matriculation', 'credit_mandatory', 'credit_elective', 'matriculate', 'departament', 'disciplines', 'course', 'type')

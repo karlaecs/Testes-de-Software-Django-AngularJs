@@ -12,7 +12,7 @@ urlpatterns = patterns(
     url(r'^api/disciplines/$', views.DisciplineList.as_view()),
     url(r'^api/secretariats/$', views.SecretariatList.as_view()),
 
-    url(r'^api/disciplines/departament/(?P<departament_id>[0-9]+)/$', 'list_by_departament', name='list_by_departament'),
+    url(r'^api/disciplines/departament/$', 'list_by_departament', name='list_by_departament'),
     #url(r'edit-offer/(?P<id>\d+)/$', 'DisciplineList.list_by_departament', name='list_by_departament'),
     #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 

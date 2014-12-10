@@ -31,8 +31,9 @@ class DisciplineList(APIView):
         return Response(serializer.data)
 
 @api_view(['GET', ])
-def list_by_departament(request, departament_id):
-        disciplines  = Discipline.objects.all().filter(departament=departament_id)
+def list_by_departament(request):
+        departament_id = request.GET.get('id')
+        disciplines = Discipline.objects.all().filter(departament=departament_id)
         serializer = DisciplineSerializer(disciplines, many=True)
         return Response(serializer.data)
 
