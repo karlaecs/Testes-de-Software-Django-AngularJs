@@ -48,21 +48,37 @@ app.controller('StudentController', [
                 else return false;
                 cont = 0;
             }
-
-            if(studentDepartament==disciplineDepartament && disciplineCourse==studentCourse && disciplineOffered) {
-                if(studentType == graduation) {
+            var mat = false;
+            if(studentDepartament==disciplineDepartament  && disciplineOffered) {
+                if(studentType == graduation && (studentCourse==disciplineCourse || disciplineType != graduation)) {
                     if(disciplineType != graduation && studentCreditsMandatory+studentCreditsElective >= minCredit) {
                         $scope.log = "Matriculado com sucesso!"
+                        mat = true;
                     }
                     else {
                         $scope.log = "Cumpra pelo menos"  + minCredit +  " de créditos";
                     }
                     if (disciplineType == graduation && studentCreditsMandatory >= disciplineCredits && checkDisciplines()) {
                         $scope.log = "Matriculado com sucesso!"
+                        mat = true;
+                    }
+                    else
+                    {
+                        $scope.log = "Cumpra os créditos obrigatórios ou as disciplinas de pré requisito";
+                    }
+                }
+                else if(studentType != graduation && studentCourse==disciplineCourse && disciplineType != graduation){
+                    if (studentCreditsMandatory >= disciplineCredits && checkDisciplines()) {
+                        $scope.log = "Matriculado com sucesso!"
+                        mat = true;
+                    }
+                    else
+                    {
+                        $scope.log = "Cumpra os créditos obrigatórios ou as disciplinas de pré requisito";
                     }
                 }
                 else {
-
+                    $scope.log = "Disciplina ofertada para alunos da graduação ao qual não pertence ao seu curso";
                 }
 
             }
