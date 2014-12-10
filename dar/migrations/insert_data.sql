@@ -69,16 +69,16 @@ INSERT INTO dar_student (id, name, matriculation, credit_mandatory, credit_elect
 VALUES (1,'Alex Carvalho', 98124812, 130, 50, 1, 1, 0, 1);
 
 INSERT INTO dar_student (id, name, matriculation, credit_mandatory, credit_elective, departament_id, course_id, matriculate, type)
-VALUES (2, 'Jurema Torres', 9924812, 100, NULL, 1, 1, 0, 1);
+VALUES (2, 'Jurema Torres', 9924812, 100, 0, 1, 1, 0, 1);
 
 INSERT INTO dar_student (id, name, matriculation, credit_mandatory, credit_elective, departament_id, course_id, matriculate, type)
-VALUES (3, 'José Vasconcelos', 9915918, NULL, NULL, 1, 2, 0, 1);
+VALUES (3, 'José Vasconcelos', 9915918, 0, 0, 1, 2, 0, 1);
 
 INSERT INTO dar_student (id, name, matriculation, credit_mandatory, credit_elective, departament_id, course_id, matriculate, type)
-VALUES (4, 'João da Silva', 9914918, NULL, NULL, 1, 3, 0, 2);
+VALUES (4, 'João da Silva', 9914918, 0, 0, 1, 3, 0, 2);
 
 INSERT INTO dar_student (id, name, matriculation, credit_mandatory, credit_elective, departament_id, course_id, matriculate, type)
-VALUES (5, 'Maria Antônia', 0012398, NULL, NULL, 2, 4, 0, 1);
+VALUES (5, 'Maria Antônia', 0012398, 0, 0, 2, 4, 0, 1);
 
 
 

@@ -8,12 +8,13 @@
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
 </div>
-<ul class="student-container" ng-repeat="student in students | filter:searchStudents">
-
-    <li class="student-name"><a ng-model="click" href="javascript:void(0)" ng-click="listDisciplines(student.departament)">[[ student.name ]]</a></li>
+<div class="student-container" ng-repeat="student in students | filter:searchStudents">
+    <span class="student-name"><a ng-click="show = !show; listDisciplines(student.departament, student.id)"  href="javascript:void(0)">[[ student.name ]]</a></span>
     <hr>
-    <div class="disciplines-show" ng-repeat="discipline in disciplinesByDepartament" >
-        <span><a href="javascript:void(0)" ng-click="matriculateStudent(discipline, student)">[[discipline.name]]</a></span>
-        <span>[[log]]</span>
+    <div ng-show="show">
+        <span class="log-msg">[[log]]</span>
+        <div ng-repeat="discipline in disciplinesByDepartament">
+            <span><a href="javascript:void(0)" ng-click="matriculateStudent(discipline, student)">[[discipline.name]]</a></span>
+        </div>
     </div>
-</ul>
+</div>

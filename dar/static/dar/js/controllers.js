@@ -10,10 +10,12 @@ app.controller('StudentController', [
             $scope.students = data;
         });
 
-        $scope.listDisciplines = function(departament_id) {
+        $scope.listDisciplines = function(departament_id, sid) {
             disciplineService.getdisciplinesByDepartament({'id' : departament_id}, function(data) {
                 $scope.disciplinesByDepartament = data;
+
             });
+
         };
 
         $scope.log = ' ';
@@ -44,32 +46,31 @@ app.controller('StudentController', [
                         }
                     }
                 }
-                if(cont==sizeDiscipline) return true;
-                else return false;
-                cont = 0;
+                if(cont==sizeDiscipline) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
             var mat = false;
-            if(studentDepartament==disciplineDepartament  && disciplineOffered) {
+            if(studentDepartament == disciplineDepartament  && disciplineOffered) {
                 if(studentType == graduation && (studentCourse==disciplineCourse || disciplineType != graduation)) {
                     if(disciplineType != graduation && studentCreditsMandatory+studentCreditsElective >= minCredit) {
-                        $scope.log = "Matriculado com sucesso!"
+                        $scope.log = "Matriculado com sucesso!";
+                        mat = true;
+                    }
+                    else if (disciplineType == graduation && studentCreditsMandatory >= disciplineCredits && checkDisciplines()) {
+                        $scope.log = "Matriculado com sucesso!";
                         mat = true;
                     }
                     else {
-                        $scope.log = "Cumpra pelo menos"  + minCredit +  " de créditos";
-                    }
-                    if (disciplineType == graduation && studentCreditsMandatory >= disciplineCredits && checkDisciplines()) {
-                        $scope.log = "Matriculado com sucesso!"
-                        mat = true;
-                    }
-                    else
-                    {
                         $scope.log = "Cumpra os créditos obrigatórios ou as disciplinas de pré requisito";
                     }
                 }
                 else if(studentType != graduation && studentCourse==disciplineCourse && disciplineType != graduation){
                     if (studentCreditsMandatory >= disciplineCredits && checkDisciplines()) {
-                        $scope.log = "Matriculado com sucesso!"
+                        $scope.log = "Matriculado com sucesso!";
                         mat = true;
                     }
                     else

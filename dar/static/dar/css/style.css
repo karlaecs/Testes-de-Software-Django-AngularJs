@@ -47,4 +47,6 @@ footer
     margin-left: 5px !important;
     padding-top: 23px !important;
 }
-
+.log-msg {
+    color:red;
+}
